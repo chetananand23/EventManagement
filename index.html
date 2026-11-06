@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="K Explore – discover and register for upcoming events.">
+<title>K Explore – Event Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Sora:wght@600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="nav">
+  <a href="#top" class="logo">K Explore</a>
+  <nav aria-label="Main">
+    <a href="#events">Events</a>
+    <a href="#about">About</a>
+    <button id="themeToggle" class="icon-btn" aria-label="Toggle dark mode">🌙</button>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Find the event worth leaving the house for.</h1>
+      <p>Hackathons, concerts, workshops and fests in one place. Browse, pick, and register in under a minute.</p>
+      <a class="btn" href="#events">Browse events</a>
+    </div>
+    <div class="countdown-card" aria-live="off">
+      <p class="cd-label">Next up</p>
+      <h2 id="cdName">Loading…</h2>
+      <div class="cd-grid">
+        <div><b id="cdD">00</b><span>days</span></div>
+        <div><b id="cdH">00</b><span>hours</span></div>
+        <div><b id="cdM">00</b><span>mins</span></div>
+        <div><b id="cdS">00</b><span>secs</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="events" class="section">
+    <h2>Upcoming events</h2>
+    <div class="toolbar">
+      <input id="search" type="search" placeholder="Search by name, venue or keyword" aria-label="Search events">
+      <div id="filters" class="chips" role="group" aria-label="Filter by category"></div>
+    </div>
+    <div id="grid" class="grid"></div>
+    <p id="empty" class="empty" hidden>No events match your search. Try a different word or category.</p>
+  </section>
+
+  <section id="about" class="section about">
+    <h2>About K Explore</h2>
+    <p>K Explore lists events from across campus and the city. Pick an event, read the details, and register with your name, email and phone number. Your registrations stay saved in this browser.</p>
+  </section>
+</main>
+
+<footer class="footer">© 2026 K Explore. Built with HTML, CSS and JavaScript.</footer>
+
+<dialog id="modal" aria-labelledby="mTitle">
+  <button class="close" id="closeModal" aria-label="Close">✕</button>
+  <div id="mBanner" class="banner"></div>
+  <div class="m-body">
+    <h3 id="mTitle"></h3>
+    <p class="meta" id="mMeta"></p>
+    <p id="mDesc"></p>
+
+    <form id="regForm" novalidate>
+      <h4>Register for this event</h4>
+      <label>Full name
+        <input id="name" name="name" autocomplete="name">
+        <small class="err" data-for="name"></small>
+      </label>
+      <label>Email address
+        <input id="email" name="email" type="email" autocomplete="email">
+        <small class="err" data-for="email"></small>
+      </label>
+      <label>Phone number
+        <input id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="10-digit mobile number">
+        <small class="err" data-for="phone"></small>
+      </label>
+      <label>Selected event
+        <select id="eventSelect" name="event"></select>
+        <small class="err" data-for="event"></small>
+      </label>
+      <button class="btn" type="submit">Register</button>
+    </form>
+
+    <div id="success" class="success" hidden role="status"></div>
+  </div>
+</dialog>
+
+<script src="js/events.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
